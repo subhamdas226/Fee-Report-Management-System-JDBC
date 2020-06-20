@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/itextpdf-5.5.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/kernel-7.1.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/bcpkix-jdk15on-1.64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/bcprov-jdk15on-1.64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/io-7.1.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bittoo-pc/eclipse-workspace/slf4j-api-1.7.13.jar"/>
+	<classpathentry kind="lib" path="D:/jdbc projects/lab-excel-download/WebContent/WEB-INF/lib/poi-3.17.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
