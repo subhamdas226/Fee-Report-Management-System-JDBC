@@ -7,19 +7,12 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
-
-import org.apache.poi.ss.usermodel.Cell;
-
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Font.FontFamily;
-import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -31,7 +24,7 @@ public class ExportPdf {
 	AccountantMenu am = new AccountantMenu();
 	public void ExportPdf(int id) throws ClassNotFoundException, SQLException, NumberFormatException, IOException, DocumentException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("working");
 		int fees = 0;
 		int paid = 0;
 		int dues = 0;
@@ -82,10 +75,19 @@ public class ExportPdf {
 	    Document document = new Document();
 
         try {
+        	
+        	
             PdfWriter.getInstance(document,
                 new FileOutputStream("Student_Fee_Report.pdf"));
             
             document.open();
+            Font font1 = new Font(Font.FontFamily.HELVETICA  , 25, Font.BOLD);
+            Image image = Image.getInstance("NSUT_logo.png");
+           // image.scaleAbsolute(50f, 80f);//Scale image's width and height
+            
+            image.scaleToFit(150, 250);
+            
+            
             float[] columnWidths = {5f, 10f};
             PdfPTable table = new PdfPTable(columnWidths); // 2 columns.
 
@@ -107,6 +109,8 @@ public class ExportPdf {
             PdfPCell cell16 = new PdfPCell(new Paragraph(due));
             PdfPCell cell17 = new PdfPCell(new Paragraph("Date Of Receipt"));
             PdfPCell cell18 = new PdfPCell(new Paragraph(s_date));
+            
+            table.setSpacingBefore(10f);
             table.addCell(cell1);
             table.addCell(cell2);
             table.addCell(cell3);
@@ -125,7 +129,13 @@ public class ExportPdf {
             table.addCell(cell16);
             table.addCell(cell17);
             table.addCell(cell18);
-
+            
+            //table.setSpacingBefore(10f);
+            document.add(image);
+            Paragraph pg = new Paragraph(" Student Fee Report ", font1);
+            pg.setAlignment(Element.ALIGN_CENTER);
+            document.add(pg);
+            //document.add(new Paragraph(" Student Fee Report ", font1));
             document.add(table);
 
             document.close();
